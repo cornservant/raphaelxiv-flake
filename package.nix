@@ -5,6 +5,8 @@
   libGL,
   wayland,
   libxkbcommon,
+  copyDesktopItems,
+  makeDesktopItem,
   makeWrapper,
 }:
 rustPlatform.buildRustPackage rec {
@@ -35,6 +37,15 @@ rustPlatform.buildRustPackage rec {
 
   nativeBuildInputs = [
     makeWrapper
+    copyDesktopItems
+  ];
+
+  desktopItems = [
+    (makeDesktopItem {
+      name = "raphael-xiv";
+      desktopName = "Raphael XIV";
+      exec = "raphael-xiv";
+    })
   ];
 
   postFixup = ''
@@ -42,8 +53,8 @@ rustPlatform.buildRustPackage rec {
       --prefix LD_LIBRARY_PATH : "${
         lib.makeLibraryPath [
           libGL
-          wayland
           libxkbcommon
+          wayland
         ]
       }"
   '';
