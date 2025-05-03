@@ -11,13 +11,13 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "raphael-xiv";
-  version = "0.19.6";
+  version = "0.20.0";
 
   src = fetchFromGitHub {
     owner = "KonaeAkira";
     repo = "raphael-rs";
     rev = "v${version}";
-    hash = "sha256-1gwO4+arqWR9XwKoZDhCaSSrLM0JgZr5f8BxKj/u7WA=";
+    hash = "sha256-YGIp2TYItjGRMBls1UzwWDMNBEp72KRa3tkAPF0Y+qA=";
   };
 
   cargoPatches = [
@@ -33,7 +33,7 @@ rustPlatform.buildRustPackage rec {
   };
 
   useFetchCargoVendor = true;
-  cargoHash = "sha256-hV5AmFjh0vmDbyCGqD/bL2PR153hUSOjGQkfqN+q2us=";
+  cargoHash = "sha256-YGIp2TYItjGRMBls1UzwWDMNBEp72KRa3tkAPF0Y+qA=";
 
   nativeBuildInputs = [
     makeWrapper
