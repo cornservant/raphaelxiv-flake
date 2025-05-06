@@ -11,13 +11,13 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "raphael-xiv";
-  version = "0.20.0";
+  version = "0.20.1";
 
   src = fetchFromGitHub {
     owner = "KonaeAkira";
     repo = "raphael-rs";
     rev = "v${version}";
-    hash = "sha256-YGIp2TYItjGRMBls1UzwWDMNBEp72KRa3tkAPF0Y+qA=";
+    hash = "sha256-p3698WHFMGpyLMjMN0aC8tbMOYfyIUPfANBFr9ZVbHM=";
   };
 
   cargoPatches = [
