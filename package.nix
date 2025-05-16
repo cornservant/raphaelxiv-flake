@@ -33,7 +33,6 @@ rustPlatform.buildRustPackage rec {
   };
 
   useFetchCargoVendor = true;
-  cargoHash = "";
 
   nativeBuildInputs = [
     makeWrapper
