@@ -1,7 +1,8 @@
 {
   lib,
   fetchFromGitHub,
-  rustPlatform,
+  rust-beta,
+  makeRustPlatform,
   libGL,
   wayland,
   libxkbcommon,
@@ -9,15 +10,21 @@
   makeDesktopItem,
   makeWrapper,
 }:
+let
+  rustPlatform = makeRustPlatform {
+    cargo = rust-beta;
+    rustc = rust-beta;
+  };
+in
 rustPlatform.buildRustPackage rec {
   pname = "raphael-xiv";
-  version = "0.20.2";
+  version = "0.21.0";
 
   src = fetchFromGitHub {
     owner = "KonaeAkira";
     repo = "raphael-rs";
     rev = "v${version}";
-    hash = "sha256-pRHDtxPaunsQxaJWLs0xH3oqjf6sCoBhcESuPTAZK0o=";
+    hash = "sha256-7TteNroSvXxdFhQ+b7gtiS9BIkAqNWPOaQMqRnQ8+5Y=";
   };
 
   cargoPatches = [
